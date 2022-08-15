@@ -11,21 +11,28 @@
 
 function Answer() {
   const array1 = [1, 4, 6, 12, 54, 65, 80];
-  const array2 = [5, 12, 31, 65];
-  const newArray = array1.concat(array2);
+  var set1 = new Set(array1);
 
-  newArray.filter((n, i) => {
-    if(){
-        
+  const array2 = [5, 12, 31, 65];
+  var set2 = new Set(array2);
+
+  const _intersection = new Set();
+  for (const elem of set1) {
+    if (set2.has(elem)) {
+      _intersection.add(elem);
     }
-  });
-  console.log(newArray);
+  }
+
+  for (const item of _intersection) {
+    console.log(item);
+  }
 }
 
 Answer();
 
+
 /* References:
 https://dev.to/lukocastillo/time-complexity-big-0-for-javascript-array-methods-and-examples-mlg
-https://medium.com/@ashfaqueahsan61/time-complexities-of-common-array-operations-in-javascript-c11a6a65a168
-https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+https://bretcameron.medium.com/how-to-make-your-code-faster-using-javascript-sets-b432457a4a77#:~:text=What%20is%20the%20time%20complexity,size%20of%20the%20data%20increases.
 */
