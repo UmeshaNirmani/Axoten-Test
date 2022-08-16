@@ -1,19 +1,19 @@
-'use strict';
+"use strict";
 
-import utils from './utils.js';
-import bind from './helpers/bind.js';
-import Axios from './core/Axios.js';
-import mergeConfig from './core/mergeConfig.js';
-import defaults from './defaults/index.js';
-import formDataToJSON from './helpers/formDataToJSON.js';
-import CanceledError from './cancel/CanceledError.js';
-import CancelToken from'./cancel/CancelToken.js';
-import isCancel from'./cancel/isCancel.js';
-import {VERSION} from './env/data.js';
-import toFormData from './helpers/toFormData.js';
-import AxiosError from '../lib/core/AxiosError.js';
-import spread from './helpers/spread.js';
-import isAxiosError from './helpers/isAxiosError.js';
+import utils from "./utils.js";
+import bind from "./helpers/bind.js";
+import Axios from "./core/Axios.js";
+import mergeConfig from "./core/mergeConfig.js";
+import defaults from "./defaults/index.js";
+import formDataToJSON from "./helpers/formDataToJSON.js";
+import CanceledError from "./cancel/CanceledError.js";
+import CancelToken from "./cancel/CancelToken.js";
+import isCancel from "./cancel/isCancel.js";
+import { VERSION } from "./env/data.js";
+import toFormData from "./helpers/toFormData.js";
+import AxiosError from "../lib/core/AxiosError.js";
+import spread from "./helpers/spread.js";
+import isAxiosError from "./helpers/isAxiosError.js";
 
 /**
  * Create an instance of Axios
@@ -27,10 +27,12 @@ function createInstance(defaultConfig) {
   const instance = bind(Axios.prototype.request, context);
 
   // Copy axios.prototype to instance
-  utils.extend(instance, Axios.prototype, context, {allOwnKeys: true});
+  utils.extend(instance, Axios.prototype, context, { allOwnKeys: true });
 
   // Copy context to instance
-  utils.extend(instance, context, {allOwnKeys: true});
+  utils.extend(instance, context, { allOwnKeys: true });
+
+  // Copy
 
   // Factory for creating new instances
   instance.create = function create(instanceConfig) {
@@ -69,7 +71,7 @@ axios.spread = spread;
 // Expose isAxiosError
 axios.isAxiosError = isAxiosError;
 
-axios.formToJSON = thing => {
+axios.formToJSON = (thing) => {
   return formDataToJSON(utils.isHTMLForm(thing) ? new FormData(thing) : thing);
 };
 
